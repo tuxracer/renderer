@@ -14,7 +14,7 @@ module.exports = (grunt) ->
   .forEach(grunt.loadTasks)
 
   # Shortcuts
-  grunt.registerTask 'test', ['clean', 'nodeunit']
+  grunt.registerTask 'test', ['clean', 'nodeunit', 'clean']
 
   # Default task
   grunt.registerTask 'default', 'test'
