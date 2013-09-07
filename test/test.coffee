@@ -7,8 +7,6 @@ module.exports =
   file: (test) ->
     test.expect 1
 
-    grunt.file.mkdir 'tmp'
-
     renderer 'test/fixtures/listen.hbs', 'tmp/listen.html',
       user: 'blaketothefuture',
       song: 'sonic-the-hedgehog-marble-zone',
@@ -23,8 +21,6 @@ module.exports =
 
   nofile: (test) ->
     test.expect 1
-
-    grunt.file.mkdir 'tmp'
 
     renderer 'test/fixtures/listen.hbs',
       user: 'blaketothefuture',
