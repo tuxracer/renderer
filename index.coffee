@@ -15,6 +15,9 @@ module.exports = (src, dest, data) ->
    data = dest
    dest = null
 
+  # Register helpers
+  require('./helpers')(Handlebars, src)
+
   Q.nfcall(fs.readFile, src, 'utf-8')
   .then (contents) ->
     template = Handlebars.compile contents

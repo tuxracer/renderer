@@ -20,5 +20,11 @@ Returns a promise with a rendered handlebars file or renders template to a file
     console.log rendered
 ```
 
+Includes a Handlebars helper `readFile` for reading file contents into a template.
+
+```
+  {{readFile '/path/relative/to/hbs/file.txt'}}
+```
+
 ## License
 MIT

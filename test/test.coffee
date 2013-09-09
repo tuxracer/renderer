@@ -4,7 +4,7 @@ renderer = require '../index'
 grunt.file.defaultEncoding = 'utf8'
 
 module.exports =
-  file: (test) ->
+  destination: (test) ->
     test.expect 1
 
     renderer 'test/fixtures/listen.hbs', 'tmp/listen.html',
@@ -19,7 +19,7 @@ module.exports =
       test.done()
     , test.done
 
-  nofile: (test) ->
+  nodestination: (test) ->
     test.expect 1
 
     renderer 'test/fixtures/listen.hbs',
@@ -30,5 +30,18 @@ module.exports =
       expected = grunt.file.read 'test/expected/listen.html'
 
       test.equal rendered, expected, 'should return rendered template as string'
+      test.done()
+    , test.done
+
+  fileincluded: (test) ->
+    test.expect 1
+
+    renderer 'test/fixtures/fileincluded.hbs', 'tmp/fileincluded.html',
+      user: 'hoodinternet'
+    .then ->
+      expected = grunt.file.read 'test/expected/fileincluded.html'
+      actual = grunt.file.read 'tmp/fileincluded.html'
+
+      test.equal actual, expected, 'should return rendered template including specified file, to file'
       test.done()
     , test.done
