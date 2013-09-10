@@ -6,7 +6,7 @@ module.exports = (Handlebars, src) ->
     dir = path.dirname src
     filepath = path.join dir, filename
 
-    fs.readFileSync filepath, encoding: 'utf-8', (err, data) ->
+    fs.readFileSync filepath, encoding: 'utf8', (err, data) ->
       throw err if err?
       data
 
